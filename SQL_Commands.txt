@@ -1,0 +1,121 @@
+##################### SQL Commands #####################
+
+to show databases : SHOW DATABASES;
+
+to create database : CREATE DATABASE (database name);
+
+to select or active database : USE (database name);
+
+to delete database : DROP DATABASE (database name);
+
+to check current working database : SELECT DATABASE();
+
+to check status of database : STATUS;
+
+to create tables in database : CREATE TABLE (table name)(var1 datatype1, var2 datatype2);
+
+to show the tables in database : SHOW TABLES;
+ 
+to describe the table : DESCRIBE (table name);
+
+to describe the table : DESC (table name);	
+
+to insert data in tables : INSERT INTO (table name)(var1, var2) VALUE (value1, value2);
+to insert data in tables : INSERT INTO (table name) VALUE (value1, value2);
+to insert data in tables : INSERT INTO (table name)(var2, var1) VALUE (value2, value1); # variable position does metter
+
+to insert multiple values in table : INSERT INTO (table name)(var1, var2) VALUES (value1, value2),(value1, value2),(value1, value2);
+
+to insert just one variable in table : INSERT INTO (table name)(var1) VALUES (value1),(value1),(value1);
+	
+to assign default values in table : CREATE TABLE (table name)(var1 dataype1 DEFAULT value1, var2 dataype2 DEFAULT value2);
+
+to assign NULL values in table : INSERT INTO (table name)(var1, var2) VALUES (value1, NULL),(value1, NULL);
+
+to change default NULL value to NOT NULL in table :CREATE TABLE (table name)(var1 dataype1 DEFAULT value1 NOT NULL, var2 dataype2 DEFAULT value2 NOT NULL);
+
+Primery Key: it is used for unique values.
+to create tables with primery key in database : CREATE TABLE (table name)(var1 datatype1 PRIMERY KEY, var2 datatype2);
+can also assign primary key the end of syntex and pass the variable
+to create tables with primery key in database : CREATE TABLE (table name)(var1 datatype1, var2 datatype2, PRIMERY KEY(var1);	
+
+Auto increment : it is use to increment automatically
+to create tables with auto increment in database : CREATE TABLE (table name)(var1 datatype1 AUTO_INCREMENT, var2 datatype2, PRIMERY KEY(var1);
+
+READ DATA 
+to read whole table in database : SELECT * FROM (table name);
+to read spacefic columns in table : SELECT var1, var2 FROM (table name);
+also can read order wise in trable : SELECT var2, var1 FROM (table name);
+
+READ WITH CONDITIONS
+to read spacefic values in columns : SELECT * FROM (table name) WHERE var1 = 'xyz';
+to read spacefic values in columns : SELECT * FROM (table name) WHERE var1 > 100;
+to read spacefic values in columns : SELECT * FROM (table name) WHERE var1 <= 400;
+
+UPDATE DATA 
+to update data in columns : UPDATE (table name) SET var1 = (enter the value you want to update) WHERE var2 = (locatethe position whare you wnat to change)
+
+
+DELETE DATA
+to delete all in table : DELETE FROM (table name); 
+to dalete data in columns : DELETE FROM (table name) WHERE var2 = (locate the position whare you wnat to delete)
+
+TEMPERARY CHANGE NAME OF COLUMN
+to temperary change name of column : SELECT var1 as var_1 , var2 from (table name);
+ 
+DISTINCT
+to read unique values in table : SELECT DISTINCT var1 FROM (table name);
+to read unique values from more than two columns in table : SELECT DISTINCT var1, var2 FROM (table name);
+
+
+CONCAT 
+to concat values in table : SELECT CONCAT(var1,' ',var2) AS (new_var) FROM (table name);
+to concat values in table : SELECT CONCAT('String1',' ','String2');
+
+TO NEW COLUMN IN A TABLE
+to add new column in table : ALTER TABLE (table name) ADD (column name) VARCHAR(100) DEFAULT 'UNKNOWN';
+
+TO CONCAT VALUES OF TWO COLUMNS AND CONCAT IN OTHER COLUMN
+to concat values of two columns and add in new column : UPDATE (table name) SET (new_var) = CONCAT(var1,'.',var2) WHERE (new_var) = 'xyz';
+ 
+SUBSTRING
+to find 1 index value in string : SELECT SUBSTRING('HELLO WORLD', 1,1) # output : H
+to find 1 and 2 index value in string : SELECT SUBSTRING('HELLO WORLD', 1,2) # output : HE
+to find 1 to 4 index value in string : SELECT SUBSTRING('HELLO WORLD', 1,4) # output : HELL
+
+to find values of column in table where starts from "A" : SELECT * FROM (table name) WHERE SUBSTRING(var1, 1,1) = "A";
+
+LIKE
+find a value in column by specific charactors in between value string : SELECT * FROM (table name) WHERE var1 LIKE "%li%";
+find a value in column by specific charactors from start of value string : SELECT * FROM (table name) WHERE var1 LIKE "li%";
+find a value in column by specific charactors ends with value string : SELECT * FROM (table name) WHERE var1 LIKE "%s";
+find a value in column by length of value string : SELECT * FROM (table name) WHERE var1 LIKE "___"; # lenght 4
+
+LIMIT
+to limit the values : SELECT * FROM (table name) WHERE var1 = 17 LIMIT 3;
+to find values start from j and limit the values : SELECT * FROM (table name) WHERE var1 LIKE "J%" LIMIT 2;
+to find, sort and limit values start from j : SELECT * FROM (table name) WHERE var1 LIKE "J%" ORDER BY var1 LIMIT 2;
+
+ORDER BY
+to sort var1 values in table : SELECT var1 FROM (table name) ORDER BY var1;
+to sort table by var1: SELECT * FROM (table name) ORDER BY var1;
+to sort table by var1 in decending order : SELECT * FROM (table name) ORDER BY var1 DESC;
+to sort specific columns by column : SELECT var1, var2, var3 FROM (table name) ORDER BY var1;
+to sort specific columns by columns : SELECT var1, var2, var3 FROM (table name) ORDER BY var1, var2;
+to sort specific columns by columns : SELECT var1, var2, var3 FROM (table name) ORDER BY 1; # sort by 1 = var1, 2 = var2 ....
+
+GENERETAE DATA ONLINE 
+www.onlinedatagenerate.com downloaddata from this website in sqlinsert format
+
+to add this online generated data in in database : SOURCE (path of this sql file)
+
+COUNT
+to count all rows in table : SELECT COUNT(*) FROM (table name);
+to count var1 values in table : SELECT COUNT(var1) FROM (table name);
+to count var1 unique values in table : SELECT COUNT(DISTINCT var1) FROM (table name);
+to count var2 unique values in table : SELECT COUNT(DISTINCT var2) FROM (table name);
+
+GROUP BY : it creats a group of identical data 
+to merge identical data of var1 in single row : SELECT * FROM (table name) GROUP BY var1;
+to count identical values of var1 in table : SELECT var1, COUNT(*) FROM (table name) GROUP BY var1;
+to count specific values of var1 in table : SELECT * FROM (table name) WHERE var1 = (specific value);
