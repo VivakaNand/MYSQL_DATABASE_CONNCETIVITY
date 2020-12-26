@@ -15,7 +15,7 @@ name_label.grid(row=2, column=0, sticky=tk.W)
 age_label = ttk.Label(win, text='Enter your age : ')
 age_label.grid(row=3, column=0, sticky=tk.W)
 
-conn = mysql.connector.connect(host='localhost', user='root', password='menghwar555') 
+conn = mysql.connector.connect(host='localhost', user='root', password='pasword555') 
 my_cursor = conn.cursor()
 query1= 'SHOW DATABASES;'
 my_cursor.execute(query1)
